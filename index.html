@@ -1,0 +1,161 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	
+	<style>
+	
+	html {
+	background-image: -webkit-linear-gradient(bottom, #F4E2C9 20%, #F4D7C9 100%);
+	background-image: -ms-linear-gradient(bottom, #F4E2C9 20%, #F4D7C9 100%);
+	background-image: linear-gradient(to bottom, #F4E2C9 20%, #F4D7C9 100%);
+}
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	color: #464637;
+	min-height: 100%;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+
+		header, section {
+			display: block;
+		}
+		body {
+			font-family: 'Droid Serif';
+		}
+		h1, h2 {
+			text-align: center;
+			font-weight: normal;
+		}
+		#features {
+			margin: auto;
+			width: 460px;
+			font-size: 0.9em;
+		}
+		.connected, .table1, .exclude, .handles {
+			margin: auto;
+			padding: 0;
+			width: 900px;              /* table1 yapısı */
+			
+			
+			
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			
+			
+		}
+		.table1.grid {
+			overflow: hidden;
+		}
+		.kutu{
+		background-color:red;
+		height:129px;
+		width:180px;
+		}
+		.connected li, .table1 li, .exclude li, .handles li {
+			list-style: none;
+			border: 1px solid #CCC;
+			background: #F6F6F6;
+			font-family: "Tahoma";
+			color: #1C94C4;
+			margin: 5px;
+			padding: 5px;
+			height: 22px;
+		}
+		
+		li.disabled {
+			opacity: 0.5;
+		}
+		.table1.grid li {    /*tablo yapısı */ 
+			line-height: 80px;
+			float: left;
+			width: 180px;
+			height: 150px;
+			text-align: center;
+		}
+		li.highlight {
+			background: #FEE25F;
+		}
+		#connected {
+			width: 440px;
+			overflow: hidden;
+			margin: auto;
+		}
+		.connected {
+			float: left;
+			width: 200px;
+		}
+		.connected.no2 {
+			float: right;
+		}
+		li.table1-placeholder {
+			border: 1px dashed #CCC;
+			background: none;
+		}
+        #handle {
+   width:0px;
+   height:0px;
+            border-right: 20px solid transparent;
+            border-top: 20px solid black;
+            cursor: move;
+        }
+		
+.drag-handle {
+	margin-right: 10px;
+	font: bold 20px Sans-Serif;
+	color: #5F9EDF;
+	display: inline-block;
+	cursor: move;
+	cursor: -webkit-grabbing; 
+	/* overrides 'move' */
+}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+</head>
+
+
+<body>
+	
+   
+	
+		<ul class="table1 grid" style="border:1px;">
+			<li><div id="handle"> </div><div class="kutu"> a  </div></li>
+			<li><div id="handle"> </div><div class="kutu">  b </div></li>
+			<li><div id="handle"> </div><div class="kutu"> c  </div></li>
+			<li><div id="handle"> </div><div class="kutu">  d </div></li>
+			<li><div id="handle"> </div><div class="kutu"> e  </div></li>
+			<li><div id="handle"> </div><div class="kutu"> f  </div></li>
+			<li><div id="handle"> </div><div class="kutu"> g  </div></li>
+		    <li><div id="handle"> </div><div class="kutu"> l  </div></li>
+	</section>
+	
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	
+	<script src="jquery.sortable.js"></script>
+	<script>
+		$(function() {
+			$('.table1').sortable();
+			$('.handles').sortable({
+				handle: 'span'
+			});
+			$('.connected').sortable({
+				connectWith: '.connected'
+			});
+			$('.exclude').sortable({
+				items: ':not(.disabled)'
+			});
+		});
+	</script>
+</body>
+</html>
